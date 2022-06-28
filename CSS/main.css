@@ -10,11 +10,13 @@
 }
 
 .snake {
-  background-color: rgb(2, 114, 2);
+  background-image: url(../Image/background\ game.jpeg);
   position: absolute;
+
 }
 
 .red-square {
-  background-color: rgb(155, 6, 6);
+  background-image: url(../Image/download.png);
+  background-repeat: no-repeat;
   position: absolute;
 }

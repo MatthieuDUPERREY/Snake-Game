@@ -7,6 +7,7 @@ class SnakeGame {
 
   startSnakeGame(){
     this.snake = new Snake ();
+    this.redSquare = new RedSquare();
     this.attachEventListeners();
   }
 
@@ -110,10 +111,10 @@ class Snake extends Square {
 
 class RedSquare extends Square {
   constructor() {
-    const width = 10;
-    const height = 10;
+    const width = 5;
+    const height = 5;
     const positionX = Math.floor(Math.random() * (100 - width + 1)); // generate random number between 0 and (100-width)
-    const positionY = 90;
+    const positionY = Math.floor(Math.random() * (100 - width + 1));
 
     super("red-square", width, height, positionX, positionY);
   }
