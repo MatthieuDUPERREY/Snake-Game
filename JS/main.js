@@ -46,9 +46,9 @@ class SnakeGame {
       this.snake.positionY < this.redSquare.positionY + this.redSquare.height &&
       this.snake.height + this.snake.positionY > this.redSquare.positionY) {
       console.log("collision");
-      } else if () {
-
-    }
+      } else if (this.snake.positionX ) {
+        console.log("collision")
+      }
   };
 
 }

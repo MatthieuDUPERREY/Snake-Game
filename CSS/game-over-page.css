@@ -1,0 +1,15 @@
+body {
+    background-color: #322240;
+    background-size: cover;
+    display: flex;
+  }
+
+
+#card-game-over {
+  background-color: aqua;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
