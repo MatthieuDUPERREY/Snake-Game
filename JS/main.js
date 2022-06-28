@@ -1,7 +1,7 @@
 class SnakeGame {
   constructor() {
-    this.redSquare = null;
-    this.snake = [];
+    this.redSquare = [];
+    this.snake = null;
 
   }
 
@@ -34,9 +34,22 @@ class SnakeGame {
           console.log("down")
           this.snake.moveDown()
           break;
-      }
-    });
+        }
+      this.collisionDetection()
+    })
   }
+
+  collisionDetection(){
+
+    if (this.snake.positionX < this.redSquare.positionX + this.redSquare.width &&
+      this.snake.positionX + this.snake.width > this.redSquare.positionX &&
+      this.snake.positionY < this.redSquare.positionY + this.redSquare.height &&
+      this.snake.height + this.snake.positionY > this.redSquare.positionY) {
+      console.log("collision");
+      } else if () {
+
+    }
+  };
 
 }
 
@@ -72,7 +85,7 @@ class Square {
 
     return newElm;
   }
-}
+};
 
 class Snake extends Square {
   constructor() {
