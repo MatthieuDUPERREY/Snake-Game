@@ -126,8 +126,9 @@ class Snake extends Square {
 
   }
 
-
 }
+
+
 
 
 class RedSquare extends Square {
