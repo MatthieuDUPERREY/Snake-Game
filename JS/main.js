@@ -35,7 +35,8 @@ class SnakeGame {
           this.snake.moveDown()
           break;
         }
-      this.collisionDetection()
+      this.collisionDetection();
+      this.collisionDetectionBorder();
     })
   }
 
@@ -45,11 +46,18 @@ class SnakeGame {
       this.snake.positionX + this.snake.width > this.redSquare.positionX &&
       this.snake.positionY < this.redSquare.positionY + this.redSquare.height &&
       this.snake.height + this.snake.positionY > this.redSquare.positionY) {
-      console.log("collision");
-      } else if (this.snake.positionX ) {
-        console.log("collision")
+      console.log("collision")
       }
   };
+
+  collisionDetectionBorder(){
+    if (this.snake.positionX < 0 || this.snake.positionX > 95 || this.snake.positionY < 0 || this.snake.positionY > 95) {
+      console.log("collision")
+      alert("GAME OVER")
+
+
+    }
+  }
 
 }
 
