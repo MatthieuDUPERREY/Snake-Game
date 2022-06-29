@@ -2,6 +2,7 @@ class SnakeGame {
   constructor() {
     this.redSquare = [];
     this.snake = null;
+    this.score = 0;
 
   }
 
@@ -46,18 +47,35 @@ class SnakeGame {
       this.snake.positionX + this.snake.width > this.redSquare.positionX &&
       this.snake.positionY < this.redSquare.positionY + this.redSquare.height &&
       this.snake.height + this.snake.positionY > this.redSquare.positionY) {
+      this.score +=20;
+      /* this.scoreNumber(); */
+          let scoreElm = document.getElementById('score')
+          scoreElm.innerText = `${"Score : " + this.score}`
       console.log("collision")
       }
   };
 
   collisionDetectionBorder(){
-    if (this.snake.positionX < 0 || this.snake.positionX > 95 || this.snake.positionY < 0 || this.snake.positionY > 95) {
+    if (this.snake.positionX < 0 || this.snake.positionX > 95.5 || this.snake.positionY < 0 || this.snake.positionY > 95.5) {
       console.log("collision")
       alert("GAME OVER")
 
 
     }
   }
+
+
+  /* scoreNumber(){
+    let scoreBoard = document.createElement('p');
+    scoreBoard.id = 'score';
+    const boardElm = document.getElementById("board"); //
+    boardElm.appendChild(scoreBoard);
+
+    /* return scoreBoard; */
+
+  /* } */
+
+
 
 }
 
@@ -142,6 +160,8 @@ class RedSquare extends Square {
   }
 
 }
+
+
 
 
 const snake = new SnakeGame ();

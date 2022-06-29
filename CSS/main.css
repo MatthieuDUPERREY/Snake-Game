@@ -7,16 +7,40 @@
   background-position: auto;
   width: 100vw;
   height: 100vh;
+  position: absolute;
 }
 
 .snake {
   background-image: url(../Image/background\ game.jpeg);
   position: absolute;
+  border-radius: 25%;
 
 }
 
 .red-square {
-  background-image: url(../Image/download.png);
+
+  background-image: url(../Image/Red\ Apple\ Free\ Illustration\,\ Red\ Apple\ Clipart\,\ Apple\,\ Apple\ Icon\ PNG\ and\ Vector\ with\ Transparent\ Background\ for\ Free\ Download.jpeg);
   background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
   position: absolute;
+}
+
+
+#score {
+  position: fixed;
+  display: flex;
+  background-color: #322240;
+  z-index: 1000;
+  width: 200px;
+  height: 100px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10%;
+  box-shadow: #110b16;
+  color: white;
+  font-size: 32px;
+
+
+
 }
