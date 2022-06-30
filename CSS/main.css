@@ -29,10 +29,11 @@
 #score {
   position: fixed;
   display: flex;
-  background-color: #322240;
+  /* background-color: #322240; */
+  background-image: url(../Image/Screenshot\ 2022-06-30\ at\ 14.17.22.png);
   z-index: 1000;
-  width: 200px;
-  height: 100px;
+  width: 15vw;
+  height: 15vh;
   align-items: center;
   justify-content: center;
   border-radius: 10%;

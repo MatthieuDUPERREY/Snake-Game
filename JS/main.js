@@ -3,6 +3,7 @@ class SnakeGame {
     this.insect = null;
     this.snake = null;
     this.score = 0;
+    this.increaseSpeed = 0;
 
   }
 
@@ -19,22 +20,22 @@ class SnakeGame {
         case "ArrowLeft":
           // Left pressed
           console.log("left")
-          this.snake.moveLeft()
+          this.snake.moveLeft(this.increaseSpeed)
           break;
         case "ArrowRight":
           // Right pressed
           console.log("right")
-          this.snake.moveRight()
+          this.snake.moveRight(this.increaseSpeed)
           break;
         case "ArrowUp":
           // Up pressed
           console.log("up")
-          this.snake.moveUp()
+          this.snake.moveUp(this.increaseSpeed)
           break;
         case "ArrowDown":
           // Down pressed
           console.log("down")
-          this.snake.moveDown()
+          this.snake.moveDown(this.increaseSpeed)
           break;
         }
       this.collisionDetection();
@@ -50,12 +51,15 @@ class SnakeGame {
       this.snake.height + this.snake.positionY > this.insect.positionY) {
       this.score +=20;
 
-      let scoreElm = document.getElementById('score')
-      scoreElm.innerText = `${"Score : " + this.score}`
+      let scoreElm = document.querySelector('#score span')
+      console.log(scoreElm)
+      scoreElm.innerText = this.score;
       this.insect.domElement.remove();
       this.insect = new Insect ();
-      console.log(this.square);
+      this.increaseSpeed += 1;
+
       }
+      return this.score
   };
 
   collisionDetectionBorder(){
@@ -63,12 +67,6 @@ class SnakeGame {
       alert("GAME OVER")
     }
   }
-
-
-
-
-
-
 }
 
 class Square {
@@ -116,22 +114,22 @@ class Snake extends Square {
   }
 
 
-  moveLeft() {
-    this.positionX-=4;
+  moveLeft(k) {
+    this.positionX-=(4 + k);
     this.domElement.style.left = this.positionX + "vw";
   }
-  moveRight() {
-    this.positionX+=4;
+  moveRight(k) {
+    this.positionX+=(4 + k);
     this.domElement.style.left = this.positionX + "vw";
   }
-  moveUp() {
-    this.positionY+=4;
+  moveUp(k) {
+    this.positionY+=(4 + k);
     this.domElement.style.bottom = this.positionY + "vh";
 
   }
 
-  moveDown() {
-    this.positionY-=4;
+  moveDown(k) {
+    this.positionY-=(4 + k);
     this.domElement.style.bottom = this.positionY + "vh";
 
   }
@@ -146,7 +144,7 @@ class Insect extends Square {
     const width = 5;
     const height = 5;
     const positionX = Math.floor(Math.random() * (100 - width + 1));
-    const positionY = Math.floor(Math.random() * (100 - width + 1));
+    const positionY = Math.floor(Math.random() * (85 - width + 1));
 
     super("insect", width, height, positionX, positionY);
   }
