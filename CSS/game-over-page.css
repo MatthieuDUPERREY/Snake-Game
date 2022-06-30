@@ -3,3 +3,13 @@ background-image: url(../Image/500_F_211543376_kv7x0SwdITkWbqajGzglhcvZV25AsPsS.
 background-repeat: no-repeat;
 background-size: cover;
 }
+
+
+button {
+  background-color: blue;
+  height: 100px;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
