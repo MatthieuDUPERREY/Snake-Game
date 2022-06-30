@@ -85,7 +85,7 @@ class SnakeGame {
 
   collisionDetectionBorder(){
     if (this.snake.positionX < 0 || this.snake.positionX > 95.5 || this.snake.positionY < 0 || this.snake.positionY > 95.5) {
-      location.href = '/gameover.html'
+      location.href = './gameover.html'
     }
   }
 }
