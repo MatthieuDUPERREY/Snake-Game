@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
 body{
 background-image: url(../Image/500_F_211543376_kv7x0SwdITkWbqajGzglhcvZV25AsPsS.jpeg);
 background-repeat: no-repeat;
@@ -15,10 +17,18 @@ div {
 }
 
 button {
-  background-color: blue;
+  /* background-color: blue;
   height: 101px;
   width: 100px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center; */
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  font-weight: bold;
+  background: linear-gradient(#79fb16, #0fc45b);
+  transition: background 0.3s ease;
+  border: 1px solid #0F60C4;
+  font-family: 'Press Start 2P', cursive;
 }
