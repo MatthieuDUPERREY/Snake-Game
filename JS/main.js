@@ -1,14 +1,15 @@
 class SnakeGame {
   constructor() {
-    this.redSquare = [];
+    this.insect = null;
     this.snake = null;
     this.score = 0;
 
   }
 
   startSnakeGame(){
-    this.snake = new Snake ();
-    this.redSquare = new RedSquare();
+    this.snake = new Snake();
+    this.insect = new Insect();
+    this.square = new Square();
     this.attachEventListeners();
   }
 
@@ -43,37 +44,28 @@ class SnakeGame {
 
   collisionDetection(){
 
-    if (this.snake.positionX < this.redSquare.positionX + this.redSquare.width &&
-      this.snake.positionX + this.snake.width > this.redSquare.positionX &&
-      this.snake.positionY < this.redSquare.positionY + this.redSquare.height &&
-      this.snake.height + this.snake.positionY > this.redSquare.positionY) {
+    if (this.snake.positionX < this.insect.positionX + this.insect.width &&
+      this.snake.positionX + this.snake.width > this.insect.positionX &&
+      this.snake.positionY < this.insect.positionY + this.insect.height &&
+      this.snake.height + this.snake.positionY > this.insect.positionY) {
       this.score +=20;
-      /* this.scoreNumber(); */
-          let scoreElm = document.getElementById('score')
-          scoreElm.innerText = `${"Score : " + this.score}`
-      console.log("collision")
+
+      let scoreElm = document.getElementById('score')
+      scoreElm.innerText = `${"Score : " + this.score}`
+      this.insect.domElement.remove();
+      this.insect = new Insect ();
+      console.log(this.square);
       }
   };
 
   collisionDetectionBorder(){
     if (this.snake.positionX < 0 || this.snake.positionX > 95.5 || this.snake.positionY < 0 || this.snake.positionY > 95.5) {
-      console.log("collision")
       alert("GAME OVER")
-
-
     }
   }
 
 
-  /* scoreNumber(){
-    let scoreBoard = document.createElement('p');
-    scoreBoard.id = 'score';
-    const boardElm = document.getElementById("board"); //
-    boardElm.appendChild(scoreBoard);
 
-    /* return scoreBoard; */
-
-  /* } */
 
 
 
@@ -149,14 +141,14 @@ class Snake extends Square {
 
 
 
-class RedSquare extends Square {
+class Insect extends Square {
   constructor() {
     const width = 5;
     const height = 5;
-    const positionX = Math.floor(Math.random() * (100 - width + 1)); // generate random number between 0 and (100-width)
+    const positionX = Math.floor(Math.random() * (100 - width + 1));
     const positionY = Math.floor(Math.random() * (100 - width + 1));
 
-    super("red-square", width, height, positionX, positionY);
+    super("insect", width, height, positionX, positionY);
   }
 
 }

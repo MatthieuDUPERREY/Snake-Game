@@ -11,15 +11,14 @@
 }
 
 .snake {
-  background-image: url(../Image/background\ game.jpeg);
+  background-image: url(../Image/500_F_211543376_kv7x0SwdITkWbqajGzglhcvZV25AsPsS.jpeg);
   position: absolute;
   border-radius: 25%;
 
 }
 
-.red-square {
-
-  background-image: url(../Image/Red\ Apple\ Free\ Illustration\,\ Red\ Apple\ Clipart\,\ Apple\,\ Apple\ Icon\ PNG\ and\ Vector\ with\ Transparent\ Background\ for\ Free\ Download.jpeg);
+.insect {
+  background-image: url(../Image/beetle.png);
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
