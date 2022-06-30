@@ -3,7 +3,8 @@ class SnakeGame {
     this.insect = null;
     this.snake = null;
     this.score = 0;
-    this.increaseSpeed = 0;
+    /* this.intervalId = 0;
+    this.refreshRate = 200; */
 
   }
 
@@ -20,22 +21,41 @@ class SnakeGame {
         case "ArrowLeft":
           // Left pressed
           console.log("left")
-          this.snake.moveLeft(this.increaseSpeed)
+          this.snake.moveLeft()
+          /* clearInterval(this.intervalId)
+          this.intervalId = setInterval(() => {
+
+          }, this.refreshRate); */
           break;
         case "ArrowRight":
           // Right pressed
           console.log("right")
-          this.snake.moveRight(this.increaseSpeed)
+
+          this.snake.moveRight()
+          /* clearInterval(this.intervalId)
+          this.intervalId = setInterval(() => {
+
+          }, this.refreshRate); */
           break;
         case "ArrowUp":
           // Up pressed
           console.log("up")
-          this.snake.moveUp(this.increaseSpeed)
+
+          this.snake.moveUp()
+         /*  clearInterval(this.intervalId)
+          this.intervalId = setInterval(() => {
+
+          }, this.refreshRate); */
           break;
         case "ArrowDown":
           // Down pressed
           console.log("down")
-          this.snake.moveDown(this.increaseSpeed)
+
+          this.snake.moveDown()
+          /* clearInterval(this.intervalId)
+          this.intervalId = setInterval(() => {
+
+          }, this.refreshRate); */
           break;
         }
       this.collisionDetection();
@@ -51,12 +71,13 @@ class SnakeGame {
       this.snake.height + this.snake.positionY > this.insect.positionY) {
       this.score +=20;
 
+
       let scoreElm = document.querySelector('#score span')
       console.log(scoreElm)
       scoreElm.innerText = this.score;
       this.insect.domElement.remove();
       this.insect = new Insect ();
-      this.increaseSpeed += 1;
+      /* this.refreshRate -= 50; */
 
       }
       return this.score
@@ -64,7 +85,10 @@ class SnakeGame {
 
   collisionDetectionBorder(){
     if (this.snake.positionX < 0 || this.snake.positionX > 95.5 || this.snake.positionY < 0 || this.snake.positionY > 95.5) {
-      alert("GAME OVER")
+      /* alert("GAME OVER") */
+      location.replace(`${location.origin}/gameover.html`)
+
+      console.log(location.origin)
     }
   }
 }
@@ -114,22 +138,22 @@ class Snake extends Square {
   }
 
 
-  moveLeft(k) {
-    this.positionX-=(4 + k);
+  moveLeft() {
+    this.positionX-=4;
     this.domElement.style.left = this.positionX + "vw";
   }
-  moveRight(k) {
-    this.positionX+=(4 + k);
+  moveRight() {
+    this.positionX+=4;
     this.domElement.style.left = this.positionX + "vw";
   }
-  moveUp(k) {
-    this.positionY+=(4 + k);
+  moveUp() {
+    this.positionY+=4;
     this.domElement.style.bottom = this.positionY + "vh";
 
   }
 
-  moveDown(k) {
-    this.positionY-=(4 + k);
+  moveDown() {
+    this.positionY-=4;
     this.domElement.style.bottom = this.positionY + "vh";
 
   }
