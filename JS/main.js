@@ -71,7 +71,7 @@ class SnakeGame {
       scoreElm.innerText = this.score;
       this.insect.domElement.remove();
       this.insect = new Insect ();
-      this.refreshRate -= 10;
+      this.refreshRate -= 20;
 
       }
       return this.score
