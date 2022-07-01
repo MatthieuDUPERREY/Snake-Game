@@ -3,8 +3,8 @@ class SnakeGame {
     this.insect = null;
     this.snake = null;
     this.score = 0;
-    /* this.intervalId = 0;
-    this.refreshRate = 200; */
+    this.intervalId = 0;
+    this.refreshRate = 200;
 
   }
 
@@ -19,47 +19,42 @@ class SnakeGame {
     document.addEventListener("keydown", (event) => {
       switch (event.key) {
         case "ArrowLeft":
-          // Left pressed
-          console.log("left")
-          this.snake.moveLeft()
-          /* clearInterval(this.intervalId)
+          clearInterval(this.intervalId)
           this.intervalId = setInterval(() => {
-
-          }, this.refreshRate); */
+            this.snake.moveLeft()
+            this.collisionDetection();
+            this.collisionDetectionBorder();
+          }, this.refreshRate);
           break;
         case "ArrowRight":
-          // Right pressed
-          console.log("right")
 
-          this.snake.moveRight()
-          /* clearInterval(this.intervalId)
+          clearInterval(this.intervalId)
           this.intervalId = setInterval(() => {
-
-          }, this.refreshRate); */
+            this.snake.moveRight()
+            this.collisionDetection();
+            this.collisionDetectionBorder();
+          }, this.refreshRate);
           break;
         case "ArrowUp":
-          // Up pressed
-          console.log("up")
 
-          this.snake.moveUp()
-         /*  clearInterval(this.intervalId)
+          clearInterval(this.intervalId)
           this.intervalId = setInterval(() => {
-
-          }, this.refreshRate); */
+            this.snake.moveUp()
+            this.collisionDetection();
+            this.collisionDetectionBorder();
+          }, this.refreshRate);
           break;
         case "ArrowDown":
-          // Down pressed
-          console.log("down")
 
-          this.snake.moveDown()
-          /* clearInterval(this.intervalId)
+          clearInterval(this.intervalId)
           this.intervalId = setInterval(() => {
-
-          }, this.refreshRate); */
+            this.snake.moveDown()
+            this.collisionDetection();
+            this.collisionDetectionBorder();
+          }, this.refreshRate);
           break;
         }
-      this.collisionDetection();
-      this.collisionDetectionBorder();
+
     })
   }
 
@@ -73,11 +68,10 @@ class SnakeGame {
 
 
       let scoreElm = document.querySelector('#score span')
-      console.log(scoreElm)
       scoreElm.innerText = this.score;
       this.insect.domElement.remove();
       this.insect = new Insect ();
-      /* this.refreshRate -= 50; */
+      this.refreshRate -= 10;
 
       }
       return this.score
@@ -105,10 +99,8 @@ class Square {
   }
 
   createDomElement() {
-    // create dom element
     const newElm = document.createElement('div');
 
-    // set id and css
     newElm.className = this.className;
     newElm.style.left = this.positionX + "vw";
     newElm.style.bottom = this.positionY + "vh";
@@ -116,7 +108,6 @@ class Square {
     newElm.style.width = this.width + "vw";
     newElm.style.height = this.height + "vh";
 
-    // append to the dom
     const boardElm = document.getElementById("board"); //
     boardElm.appendChild(newElm);
 
